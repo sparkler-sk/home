@@ -1,17 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset='UTF-8'>
-<title>線香花火</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線香花火</title>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 共通設定 --- */
+        @font-face {
+            font-family: "アームド・バナナ";
+            src: url('https://cdn.leafscape.be/Arm/ArmedBanana_web.woff') format("woff");
+        }
+
+        body {
+            letter-spacing: 1px;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 25px;
+            background: #fffffc;
+            color: #3f312b;
+        }
+
+        #wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 10px;
+        }
+
+        /* --- タイトル部分 --- */
+        .sitetitle {
+            font-family: "アームド・バナナ";
+            font-size: 50px;
+            line-height: 1;
+            color: #f8fbf8;
+            text-shadow: 0 0 10px #00a497;
+            display: block;
+            text-align: left;
+        }
+
+        p.site-url {
+            font-family: 'Architects Daughter', cursive;
+            color: #ccc;
+            line-height: 1;
+            font-size: 12px;
+            margin: 10px 0 20px 10px;
+        }
+
+        /* --- メインコンテンツ（白い四角） --- */
+        .bg { margin: 0 auto; padding: 20px 0 10px; }
+
+        .tp {
+            font-family: 'Architects Daughter', cursive;
+            text-align: center;
+            padding: 25px 20px 65px;
+            margin: 0 10px 5px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
+        }
+
+        .tp a {
+            color: #3f312b;
+            transition: 0.4s;
+            text-decoration: none;
+            margin: 0 8px;
+            padding: 2px 12px;
+            font-size: 18px;
+            background-color: #e8ecef;
+            opacity: 0.70;
+            display: inline-block;
+        }
+
+        .tp a:hover { background-color: #f8fbf8; position: relative; top: 1px; }
+
+        /* --- フッター・見出し --- */
+        .ft {
+            font-family: 'Varela Round', sans-serif;
+            width: 80%;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        h1, h2 {
+            font-size: 16px;
+            font-weight: 400;
+            position: relative;
+            padding-left: 1.7em;
+            line-height: 1.8;
+            margin: 20px 0 10px;
+        }
+
+        h1:before, h2:before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f3a5";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        h1:before { color: #f5b1aa; }
+        h2:before { color: #59b9c6; }
+
+        .ft a {
+            font-family: "メイリオ", sans-serif;
+            color: #3f312b;
+            padding: 0 5px;
+            text-decoration: none;
+            border-bottom: 3px #dddcd6 solid;
+        }
+
+        .ft a:hover { border-bottom: 3px #41a6bf solid; }
+
+        /* スマホ用調整 */
+        @media screen and (max-width: 500px) {
+            .sitetitle { font-size: 35px; }
+            .tp a { font-size: 15px; margin: 5px; }
+            .ft { width: 100%; }
+        }
+    </style>
 </head>
 <body>
-<h1>線香花火</h1>
-  <p>
-info main clap<br>
-<br>
-更新履歴<br>
-返信　呟き<br>
-小説ranking
-</p>
+
+<div id="wrapper">
+    <br>
+    <span class="sitetitle">線香花火</span>
+    <p class="site-url">https://nanos.jp/sparklers/</p>
+
+    <div class="bg">
+        <div class="tp">
+            <br>
+            <a href="#">info</a> 
+            <a href="#">main</a> 
+            <a href="#">clap</a>
+        </div>
+
+        <div class="ft">
+            <br>
+            <h1>更新履歴<br>
+                小説 2025/02/14 短編<br>
+                返信 2026/02/07
+            </h1>
+
+            <h2>返信 <a href="#">つぶやき</a>(小ネタ24/04/11）<br><br>
+                Rank :: <a href="http://r.alicex.jp/Shamanking/in.php?eid=sparklers&guid=ON">真・柑橘。</a>　
+                <a href="http://minor-ds.com/search/rank.cgi?mode=r_link&id=14790">MDS</a>
+            </h2>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
