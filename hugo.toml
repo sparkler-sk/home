@@ -2,3 +2,5 @@ baseURL = 'https://sparkler-sk.github.io/home/'
 languageCode = 'ja-jp'
 title = '線香花火'
 theme = 'hugo-book'
+[params]
+  BookTheme = 'light'
