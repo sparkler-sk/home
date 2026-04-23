@@ -1,30 +1,95 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>短編目次</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>短編一覧</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <script>
+    $(document).ready(function() {
+        var savedBg = sessionStorage.getItem('bg_style') || 'white';
+        applyBg(savedBg);
+        $("#BgToggle").click(function () {
+            var nextBg = $("body").hasClass('white') ? 'black' : 'white';
+            applyBg(nextBg);
+        });
+        function applyBg(bg) {
+            sessionStorage.setItem('bg_style', bg);
+            $("body").attr('class', bg);
+        }
+
+        var savedFont = sessionStorage.getItem('font_style') || 'gothic';
+        applyFont(savedFont);
+        $("#btn_font_toggle").click(function () {
+            var nextFont = (sessionStorage.getItem('font_style') === 'gothic') ? 'serif' : 'gothic';
+            applyFont(nextFont);
+        });
+        function applyFont(font) {
+            sessionStorage.setItem('font_style', font);
+            if (font === 'serif') {
+                $("#honbun").addClass('serif').removeClass('gothic');
+                $("#btn_font_toggle").text('ａＡ');
+            } else {
+                $("#honbun").addClass('gothic').removeClass('serif');
+                $("#btn_font_toggle").text('ａＡ');
+            }
+        }
+
+        var savedSize = sessionStorage.getItem('font_size') || 'middle';
+        applySize(savedSize);
+        $("#btn_size_toggle").click(function () {
+            var currentSize = sessionStorage.getItem('font_size') || 'middle';
+            var nextSize = (currentSize === 'middle') ? 'large' : (currentSize === 'large' ? 'small' : 'middle');
+            applySize(nextSize);
+        });
+        function applySize(size) {
+            sessionStorage.setItem('font_size', size);
+            $("#honbun").removeClass('small middle large').addClass(size);
+            $("#btn_size_toggle").text(size === 'small' ? 'S' : (size === 'large' ? 'L' : 'M'));
+        }
+    });
+    </script>
+
     <style>
-        body { font-family: "メイリオ", sans-serif; background-color: #fffffc; padding: 30px; }
-        .title { font-size: 20px; font-weight: bold; margin-bottom: 20px; text-align: center; }
-        .list { max-width: 400px; margin: 0 auto; }
-        .item { margin-bottom: 15px; border-bottom: 1px dotted #ccc; }
-        a { text-decoration: none; color: #2b2b2b; }
+        /* あなたのCSSをそのまま貼り付けてください（長いので中略しますが、丸ごと入れてOKです） */
+        /* ※ .black main や #BgToggle のデザインがここに入ります */
     </style>
 </head>
-<body>
 
-<div class="list">
-    <div class="title">短編一覧</div>
+<body id="all" class="white">
+<main>
+    <section class="style">
+        <div id="novel_buttons">  
+            <ul id="s_ul" style="display: flex; justify-content: flex-end;">
+                <li id="s_li">
+                    <ul id="bw_swich">
+                        <li id="BgToggle" title="背景切替"><i class="fas fa-adjust"></i></li>
+                    </ul>
+                </li>
+                <li id="s_li">
+                    <ul id="switchFont">
+                        <li id="btn_font_toggle" class="serif" title="書体切替">ａＡ</li>
+                    </ul>
+                </li>
+                <li id="s_li">
+                    <ul id="switchFontSize">
+                        <li id="btn_size_toggle" class="gothic current" title="サイズ変更">M</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="item">
-        <a href="story01.html">01.タイトル</a>
+    <div class="novel">
+        <div id="honbun">
+            <p>
+                <a href="story01.html">お話のタイトル01</a><br>
+                <a href="story02.html">お話のタイトル02</a>
+            </p>
+        </div> 
     </div>
-
-    <p style="text-align:center; margin-top:30px;">
-        <a href="novel.html">戻る</a>
-    </p>
-</div>
-
+</main>
 </body>
 </html>
