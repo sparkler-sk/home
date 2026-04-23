@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <style type="text/css">
+        /* あなたのCSSをそのまま移植しました */
+        #wrapper{ max-width: 700px; margin: 0px auto; padding: 15px 13px 10px; }
+        body{ font-family: メイリオ, "ＭＳ Ｐゴシック", sans-serif; font-size: 16px; letter-spacing: 1.5px; line-height: 1.9; text-align:left; color:#000; background-color: #fff; }
+        .mokuji{ font-family: 'Raleway', sans-serif; font-size: 14px; margin:0 auto; padding:5px 20px; line-height: 2.8; }
+        .tp { padding:25px 25px 5px; margin: 20px 0; background: rgba(255,255,255,0.9); box-shadow: 0 0 0 3px rgba(255,255,255,0.6); }
+        .title{ font-size:150%; line-height:1.4; letter-spacing: 2px; margin-bottom: 20px; font-weight: bold; }
+        .atogaki{ font-size: 11px; letter-spacing: 1px; margin-top: 20px; }
+        p.center {text-align: center;}
+        a{ font-family: 'Raleway', sans-serif; text-decoration:none; border-bottom:solid 1px #e3e3e3; padding: 1px 2px; color: #000; }
+        /* 色設定 */
+        .pink{color: #ff1493;} .gray{color: #b0b0b0;} .blue{color: #00bfff;} .red{color: #c9171e;}
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="tp">
+        <div class="mokuji">
+            <div class="title">ヒロインになる日 <span class="gray">蓮</span></div>
+            <div class="text">
+                「蓮、こっち向いて」<br>
+                ここに本文を書きます。nanosの文章レイアウトと同じ見た目になります。<br>
+                改行はbrを使います。
+            </div>
+            <div class="atogaki">
+                ここにあとがき。不要ならこの3行を消してね。
+            </div>
+        </div>
+    </div>
+    <p class="center"><a href="index.html">TOP BACK</a></p>
+</div>
+
+</body>
+</html>
