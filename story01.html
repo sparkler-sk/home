@@ -1,41 +1,112 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>小説本文</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <style type="text/css">
-        /* あなたのCSSをそのまま移植しました */
-        #wrapper{ max-width: 700px; margin: 0px auto; padding: 15px 13px 10px; }
-        body{ font-family: メイリオ, "ＭＳ Ｐゴシック", sans-serif; font-size: 16px; letter-spacing: 1.5px; line-height: 1.9; text-align:left; color:#000; background-color: #fff; }
-        .mokuji{ font-family: 'Raleway', sans-serif; font-size: 14px; margin:0 auto; padding:5px 20px; line-height: 2.8; }
-        .tp { padding:25px 25px 5px; margin: 20px 0; background: rgba(255,255,255,0.9); box-shadow: 0 0 0 3px rgba(255,255,255,0.6); }
-        .title{ font-size:150%; line-height:1.4; letter-spacing: 2px; margin-bottom: 20px; font-weight: bold; }
-        .atogaki{ font-size: 11px; letter-spacing: 1px; margin-top: 20px; }
-        p.center {text-align: center;}
-        a{ font-family: 'Raleway', sans-serif; text-decoration:none; border-bottom:solid 1px #e3e3e3; padding: 1px 2px; color: #000; }
-        /* 色設定 */
-        .pink{color: #ff1493;} .gray{color: #b0b0b0;} .blue{color: #00bfff;} .red{color: #c9171e;}
+        /* --- ここにデザインの設定を書きます --- */
+        body {
+            text-align: justify;
+            line-height: 1.7;
+            letter-spacing: 0.1em;
+            margin: 0;
+            font-family: メイリオ, sans-serif;
+            transition: 0.3s; /* 色が変わるときにふわっとさせます */
+        }
+
+        /* 背景：白設定 */
+        body.white { background-color: #fff; color: #000; }
+        /* 背景：黒設定 */
+        body.black { background-color: #222; color: #ccc; }
+
+        main {
+            margin: 0 auto;
+            padding: 30px 20px;
+            max-width: 620px;
+            min-height: 100vh;
+        }
+
+        /* ボタンが並ぶエリア */
+        #novel_buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn {
+            list-style: none;
+            padding: 5px 15px;
+            border: 1px solid #ddd;
+            background: #eee;
+            cursor: pointer;
+            color: #333;
+            margin-left: 5px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        /* 本文エリア */
+        #honbun { line-height: 2; margin-top: 30px; }
+        #honbun.small { font-size: 13px; }
+        #honbun.middle { font-size: 16px; }
+        #honbun.large { font-size: 20px; }
+        #honbun.serif { font-family: 'Noto Serif JP', serif; }
+        #honbun.gothic { font-family: メイリオ, sans-serif; }
+
+        .back-link { text-align: center; margin-top: 50px; }
+        a { color: inherit; text-decoration: none; border-bottom: 1px dotted; }
     </style>
+
+    <script>
+    $(document).ready(function() {
+        // --- 背景色切り替え ---
+        $("#BgToggle").click(function () {
+            $("body").toggleClass('black white');
+        });
+
+        // --- フォント切り替え ---
+        $("#btn_font_toggle").click(function () {
+            $("#honbun").toggleClass('serif gothic');
+        });
+
+        // --- サイズ切り替え ---
+        var sizes = ['small', 'middle', 'large'];
+        var currentSizeIdx = 1; // 最初はmiddle
+        $("#btn_size_toggle").click(function () {
+            currentSizeIdx = (currentSizeIdx + 1) % sizes.length;
+            $("#honbun").removeClass('small middle large').addClass(sizes[currentSizeIdx]);
+            $(this).text(sizes[currentSizeIdx].toUpperCase().charAt(0)); // S, M, L表示
+        });
+    });
+    </script>
 </head>
-<body>
 
-<div id="wrapper">
-    <div class="tp">
-        <div class="mokuji">
-            <div class="title">ヒロインになる日 <span class="gray">蓮</span></div>
-            <div class="text">
-                「蓮、こっち向いて」<br>
-                ここに本文を書きます。nanosの文章レイアウトと同じ見た目になります。<br>
-                改行はbrを使います。
-            </div>
-            <div class="atogaki">
-                ここにあとがき。不要ならこの3行を消してね。
-            </div>
-        </div>
+<body class="white">
+<main>
+
+    <div id="novel_buttons">
+        <div id="BgToggle" class="toggle-btn" title="背景切替"><i class="fas fa-adjust"></i></div>
+        <div id="btn_font_toggle" class="toggle-btn" title="書体切替">ａＡ</div>
+        <div id="btn_size_toggle" class="toggle-btn" title="サイズ変更">M</div>
     </div>
-    <p class="center"><a href="index.html">TOP BACK</a></p>
-</div>
 
+    <div id="honbun" class="middle gothic">
+        
+        ここに小説の本文を書きます。<br>
+        改行するときは「br」を入れます。<br>
+        <br>
+        上のボタンを押すと、背景の色や文字の大きさが変わるはずです！
+        </div>
+
+    <div class="back-link">
+        <a href="short.html">短編目次へ戻る</a>
+    </div>
+
+</main>
 </body>
 </html>
